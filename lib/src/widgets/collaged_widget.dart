@@ -3,6 +3,7 @@ import 'package:image_collage/src/extentions/expand_equally.dart';
 import 'package:image_collage/src/models/image.dart';
 import 'package:image_collage/src/models/image_layout.dart';
 import 'package:image_collage/src/widgets/show_image.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
 class ImageCollage extends StatefulWidget {
   // Image Collage: Stateful Widget
@@ -21,6 +22,7 @@ class ImageCollage extends StatefulWidget {
         color: Colors.white, fontWeight: FontWeight.w600, fontSize: 36),
     this.noImageBackgroundColor = Colors.white,
     this.margin = const EdgeInsets.all(0),
+    this.customCacheManager,
   })  : assert(showMoreBackgroundOpacity <= 1),
         super(key: key);
 
@@ -57,6 +59,8 @@ class ImageCollage extends StatefulWidget {
 
   // no image background color
   final Color noImageBackgroundColor;
+
+  final BaseCacheManager? customCacheManager;
 
   @override
   State<ImageCollage> createState() => ImageCollageState();
@@ -112,6 +116,7 @@ class ImageCollageState extends State<ImageCollage> {
           noImageBackgroundColor: widget.noImageBackgroundColor,
           noImageText: '',
           width: widget.widthSize,
+          customCacheManager: widget.customCacheManager,
         );
       case 2:
         return Row(
@@ -124,6 +129,7 @@ class ImageCollageState extends State<ImageCollage> {
               noImageBackgroundColor: widget.noImageBackgroundColor,
               noImageText: '',
               width: widget.widthSize,
+              customCacheManager: widget.customCacheManager,
             ),
             ShowImage(
               image: widget.images[1],
@@ -133,6 +139,7 @@ class ImageCollageState extends State<ImageCollage> {
               noImageBackgroundColor: widget.noImageBackgroundColor,
               noImageText: '',
               width: widget.widthSize,
+              customCacheManager: widget.customCacheManager,
             )
           ].expandEqually().toList(),
         );
@@ -148,6 +155,7 @@ class ImageCollageState extends State<ImageCollage> {
               noImageBackgroundColor: widget.noImageBackgroundColor,
               noImageText: '',
               width: widget.widthSize,
+              customCacheManager: widget.customCacheManager,
             ),
             Column(
               children: [
@@ -159,6 +167,7 @@ class ImageCollageState extends State<ImageCollage> {
                   noImageBackgroundColor: widget.noImageBackgroundColor,
                   noImageText: '',
                   width: widget.widthSize,
+                  customCacheManager: widget.customCacheManager,
                 ),
                 ShowImage(
                   image: widget.images[2],
@@ -168,6 +177,7 @@ class ImageCollageState extends State<ImageCollage> {
                   noImageBackgroundColor: widget.noImageBackgroundColor,
                   noImageText: '',
                   width: widget.widthSize,
+                  customCacheManager: widget.customCacheManager,
                 ),
               ].expandEqually().toList(),
             )
@@ -184,6 +194,7 @@ class ImageCollageState extends State<ImageCollage> {
               noImageBackgroundColor: widget.noImageBackgroundColor,
               noImageText: '',
               width: widget.widthSize,
+              customCacheManager: widget.customCacheManager,
             ),
             Column(
               children: [
@@ -195,6 +206,7 @@ class ImageCollageState extends State<ImageCollage> {
                   noImageBackgroundColor: widget.noImageBackgroundColor,
                   noImageText: '',
                   width: widget.widthSize,
+                  customCacheManager: widget.customCacheManager,
                 ),
                 Stack(
                   alignment: Alignment.center,
@@ -208,6 +220,7 @@ class ImageCollageState extends State<ImageCollage> {
                       noImageBackgroundColor: widget.noImageBackgroundColor,
                       noImageText: '',
                       width: widget.widthSize,
+                      customCacheManager: widget.customCacheManager,
                     ),
                     Positioned.fill(
                       child: GestureDetector(
