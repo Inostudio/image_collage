@@ -123,12 +123,15 @@ class ShowImage extends StatelessWidget {
               ),
             ),
             errorWidget: (context, url, error) => Container(
-                width: width,
-                height: height,
-                color: Colors.black,
-                child: const Text(
+              width: width,
+              height: height,
+              color: Colors.black,
+              child: const Center(
+                child: Text(
                   "⚠️",
-                )),
+                ),
+              ),
+            ),
           ),
         );
       default:
