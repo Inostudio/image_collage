@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:image_collage/src/models/image.dart';
@@ -62,6 +64,26 @@ class ShowImage extends StatelessWidget {
                 : layout == ImageLayout.half
                     ? size / 2
                     : size / 2,
+            fit: BoxFit.cover,
+          ),
+        );
+      case ImageSource.file:
+        final height = layout == ImageLayout.full
+            ? size
+            : layout == ImageLayout.half
+                ? size
+                : size / 2;
+        final width = layout == ImageLayout.full
+            ? size
+            : layout == ImageLayout.half
+                ? size / 2
+                : size / 2;
+        return GestureDetector(
+          onTap: () => callBack(image),
+          child: Image.file(
+            File(image.image),
+            width: width,
+            height: height,
             fit: BoxFit.cover,
           ),
         );
