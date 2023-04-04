@@ -1,1 +1,1 @@
-enum ImageSource { network, assets, memory }
+enum ImageSource { network, assets, memory, file }
